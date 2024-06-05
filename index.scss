@@ -85,6 +85,7 @@ main {
     "person work play study"
     "person exercise social self-care";
   gap: 3rem;
+  max-width: 1110px;
 
   @include tablet {
     grid-template-columns: 1fr 1fr;
