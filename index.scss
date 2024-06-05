@@ -1,0 +1,340 @@
+@mixin mobile {
+  @media (max-width: 477px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 959px) {
+    @content;
+  }
+}
+
+// VARIABLES
+
+:root {
+  --color-primary-blue: hsl(246, 80%, 60%);
+
+  --color-primary-light-red-work: hsl(15, 100%, 70%);
+  --color-primary-soft-blue: hsl(195, 74%, 62%);
+  --color-primary-light-red-study: hsl(348, 100%, 68%);
+  --color-primary-lime-green: hsl(145, 58%, 55%);
+  --color-primary-violet: hsl(264, 64%, 52%);
+  --color-primary-soft-orange: hsl(43, 84%, 65%);
+
+  --color-neutral-very-dark-blue: hsl(226, 43%, 10%);
+  --color-neutral-dark-blue: hsl(235, 46%, 20%);
+  --color-neutral-blue: hsl(235, 41%, 34%);
+  --color-neutral-desaturated-blue: hsl(235, 45%, 61%);
+  --color-neutral-pale-blue: hsl(236, 100%, 87%);
+  --color-neutral-white: hsl(255, 100%, 100%);
+
+  --font-family: "Rubik", sans-serif;
+}
+
+// RESET
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+// GENERAL STYLES
+
+body {
+  font-family: var(--font-family);
+  font-size: 1.8rem;
+  background-color: var(--color-neutral-very-dark-blue);
+  color: var(--color-neutral-desaturated-blue);
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 2.4rem;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+// DASHBOARD
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "person work play study"
+    "person exercise social self-care";
+  gap: 3rem;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "person work"
+      "person play"
+      "study exercise"
+      "social self-care";
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "person"
+      "work"
+      "play"
+      "study"
+      "exercise"
+      "social"
+      "self-care";
+    gap: 2.4rem;
+    margin: 8.1rem 0;
+  }
+}
+
+// CARD
+
+.card {
+  position: relative;
+
+  &--person {
+    grid-area: person;
+
+    display: flex;
+    flex-direction: column;
+
+    .card__top {
+      background-color: var(--color-primary-blue);
+      padding: 3.7rem 3.2rem;
+      z-index: 2;
+      flex: 1;
+
+      @include mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+
+    .card__body {
+      margin-top: -2rem;
+      padding: 5.2rem 3.2rem 3.2rem 3.2rem;
+      &:hover {
+        cursor: pointer;
+        background-color: var(--color-neutral-dark-blue);
+      }
+    }
+  }
+
+  &--work {
+    grid-area: work;
+
+    .card__top {
+      background-color: var(--color-primary-light-red-work);
+    }
+  }
+
+  &--play {
+    grid-area: play;
+
+    .card__top {
+      background-color: var(--color-primary-blue);
+    }
+  }
+
+  &--study {
+    grid-area: study;
+
+    .card__top {
+      background-color: var(--color-primary-light-red-study);
+    }
+  }
+
+  &--exercise {
+    grid-area: exercise;
+
+    .card__top {
+      background-color: var(--color-primary-lime-green);
+    }
+  }
+
+  &--social {
+    grid-area: social;
+
+    .card__top {
+      background-color: var(--color-primary-violet);
+    }
+  }
+
+  &--self-care {
+    grid-area: self-care;
+
+    .card__top {
+      background-color: var(--color-primary-soft-orange);
+    }
+  }
+
+  &__top {
+    height: 160px;
+    position: relative;
+
+    overflow: hidden;
+    border-radius: 1.5rem;
+    z-index: -1;
+  }
+
+  &__image {
+    position: absolute;
+    right: 1.7rem;
+    top: -1rem;
+  }
+
+  &__body {
+    margin-top: -11.5rem;
+    background-color: var(--color-neutral-dark-blue);
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    transition: background-color 0.25s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-neutral-blue);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+  }
+
+  &__category {
+    font-weight: 500;
+    color: var(--color-neutral-white);
+  }
+
+  &__time {
+    font-size: 5.6rem;
+    font-weight: 300;
+    color: var(--color-neutral-white);
+    margin-bottom: 0.8rem;
+
+    @include mobile {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__previous {
+    font-size: 1.5rem;
+    color: var(--color-neutral-pale-blue);
+  }
+
+  &__avatar {
+    border: 3px solid var(--color-neutral-white);
+    border-radius: 50%;
+    margin-bottom: 4rem;
+
+    @include mobile {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+    color: var(--color-neutral-pale-blue);
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--color-neutral-white);
+
+    @include mobile {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+
+    @include mobile {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    transition: color 0.25s ease-in-out;
+
+    &--active {
+      color: var(--color-neutral-white);
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: var(--color-neutral-white);
+    }
+  }
+
+  &__menu {
+    &:hover {
+      cursor: pointer;
+      filter: brightness(100);
+    }
+  }
+
+  &__text {
+    @include mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+// ATTRIBUTION
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--color-neutral-dark-blue);
+  border-radius: 1.5rem 1.5rem 0 0;
+
+  @include mobile {
+    display: none;
+  }
+
+  &__link {
+    color: var(--color-neutral-white);
+  }
+}

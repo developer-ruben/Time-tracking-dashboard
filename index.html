@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./dist/index.css" />
+  </head>
+  <body>
+    <main>
+      <div class="dashboard">
+        <div class="card card--person">
+          <header class="card__top">
+            <img
+              class="card__avatar"
+              src="./images/image-jeremy.png"
+              alt="jeremy"
+              width="78"
+              height="78"
+            />
+            <div>
+              <span class="card__subtitle"> Report for </span>
+              <h1 class="card__title">Jeremy Robson</h1>
+            </div>
+          </header>
+          <div class="card__body">
+            <ul class="card__list">
+              <li id="daily" class="card__item">Daily</li>
+              <li id="weekly" class="card__item card__item--active">Weekly</li>
+              <li id="monthly" class="card__item">Monthly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card--work">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-work.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Work</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="work-current" class="card__time">32hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="work-previous">36hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card--play">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-play.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Play</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="play-current" class="card__time">10hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="play-previous">8hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card--study">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-study.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Study</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="study-current" class="card__time">4hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="study-previous">7hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card--exercise">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-exercise.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Exercise</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="exercise-current" class="card__time">4hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="exercise-previous">5hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card--social">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-social.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Social</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="social-current" class="card__time">5hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="social-previous">10hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card--self-care">
+          <header class="card__top">
+            <img class="card__image" src="./images/icon-self-care.svg" alt="" />
+          </header>
+          <div class="card__body">
+            <div class="card__header">
+              <span class="card__category">Self Care</span>
+              <img class="card__menu" src="./images/icon-ellipsis.svg" alt="" />
+            </div>
+            <div class="card__text">
+              <span id="self-care-current" class="card__time">2hrs</span>
+              <p class="card__previous">
+                Last Week - <span id="self-care-previous">2hrs</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a
+        class="attribution__link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a class="attribution__link" href="https://rubendeman.nl" target="_blank"
+        >Ruben de Man</a
+      >.
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
