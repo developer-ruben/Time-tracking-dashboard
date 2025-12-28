@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <div class="card card--featured">
+        <div class="card__top">
+          <img
+            class="card__avatar"
+            src="./assets/images/image-jeremy.png"
+            width="78"
+            height="78"
+            alt="Portrait of Jeremy Robson"
+          />
+          <div class="card__user">
+            <span>Report for</span>
+            <h1 class="card__name">Jeremy Robson</h1>
+          </div>
+        </div>
+        <div class="card__bottom">
+          <ul class="card__list">
+            <li class="card__type" id="daily" aria-label="View daily reports">
+              Daily
+            </li>
+            <li class="card__type" id="weekly" aria-label="View weekly reports">
+              Weekly
+            </li>
+            <li
+              class="card__type"
+              id="monthly"
+              aria-label="View monthly reports"
+            >
+              Monthly
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dashboard__grid" id="dashboard"></div>
+    </main>
+
+    <footer class="attribution">
+      <p>
+        Challenge by
+        <a
+          class="attribution__link"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          class="attribution__link"
+          href="https://rubendeman.nl"
+          target="_blank"
+          >Ruben de Man</a
+        >.
+      </p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
