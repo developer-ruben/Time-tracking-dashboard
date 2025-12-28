@@ -33,10 +33,12 @@ async function updateUI(setting) {
     ?.classList.remove("card__type--active");
 
   const activeButton = document.getElementById(setting);
-  activeButton.classList.add("card__type--active");
+  if (activeButton) {
+    activeButton.classList.add("card__type--active");
+    activeButton.setAttribute("aria-pressed", "true");
+  }
 
   settings.forEach((btn) => btn.setAttribute("aria-pressed", "false"));
-  activeButton.setAttribute("aria-pressed", "true");
 
   dashboard.innerHTML = "";
 
@@ -53,7 +55,7 @@ async function updateUI(setting) {
       <div class="card__body">
         <header class="card__header">
           <span>${title}</span>
-          <button class="card__button" aria-label="More options">
+          <button class="card__button" aria-label="More options" type="button">
             <img src="./assets/images/icon-ellipsis.svg" alt="" />
           </button>
         </header>
